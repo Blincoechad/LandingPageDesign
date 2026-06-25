@@ -549,7 +549,12 @@
           </h2>
         </div>
         <div class="process-steps">
-          <div class="process-step reveal">
+          <button
+            type="button"
+            class="process-step reveal"
+            data-title="Discovery"
+            data-text="We talk about your goals, audience, and vision. I ask the right questions to understand exactly what you need."
+          >
             <div class="step-connector"></div>
             <div class="step-num">01</div>
             <div class="step-title">Discovery</div>
@@ -557,8 +562,13 @@
               We talk about your goals, audience, and vision. I ask the right
               questions to understand exactly what you need.
             </div>
-          </div>
-          <div class="process-step reveal">
+          </button>
+          <button
+            type="button"
+            class="process-step reveal"
+            data-title="Design"
+            data-text="I craft layouts, color palettes, and typography that fit your brand and make a strong first impression."
+          >
             <div class="step-connector"></div>
             <div class="step-num">02</div>
             <div class="step-title">Design</div>
@@ -566,8 +576,13 @@
               I craft layouts, color palettes, and typography that fit your
               brand and make a strong first impression.
             </div>
-          </div>
-          <div class="process-step reveal">
+          </button>
+          <button
+            type="button"
+            class="process-step reveal"
+            data-title="Build"
+            data-text="Clean, optimized code is written from scratch. Every interaction, animation, and page is built with performance in mind."
+          >
             <div class="step-connector"></div>
             <div class="step-num">03</div>
             <div class="step-title">Build</div>
@@ -575,18 +590,35 @@
               Clean, optimized code is written from scratch. Every interaction,
               animation, and page is built with performance in mind.
             </div>
-          </div>
-          <div class="process-step reveal">
+          </button>
+          <button
+            type="button"
+            class="process-step reveal"
+            data-title="Launch"
+            data-text="Final review, testing across devices, and deployment. I ensure everything is ready before going live."
+          >
             <div class="step-num">04</div>
             <div class="step-title">Launch</div>
             <div class="step-desc">
               Final review, testing across devices, and deployment. I ensure
               everything is ready before going live.
             </div>
-          </div>
+          </button>
         </div>
       </div>
     </section>
+
+    <div class="process-modal" id="processModal" aria-hidden="true">
+      <div class="process-modal__backdrop" data-close-modal></div>
+      <div class="process-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="processModalTitle">
+        <button class="process-modal__close" type="button" aria-label="Close modal" data-close-modal>
+          ×
+        </button>
+        <div class="process-modal__eyebrow">My Process</div>
+        <h3 class="process-modal__title" id="processModalTitle"></h3>
+        <p class="process-modal__text" id="processModalText"></p>
+      </div>
+    </div>
 
     <!-- ─── CONTACT ───────────────────────────────────── -->
     <section id="contact">

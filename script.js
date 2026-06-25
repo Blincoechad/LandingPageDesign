@@ -57,3 +57,55 @@ updateBackToTop();
 backToTop?.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+// ─── Process modal
+const processModal = document.getElementById("processModal");
+const processModalTitle = document.getElementById("processModalTitle");
+const processModalText = document.getElementById("processModalText");
+const processSteps = document.querySelectorAll(".process-step");
+
+function closeProcessModal() {
+  if (!processModal) return;
+  processModal.classList.remove("is-open");
+  processModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
+
+function openProcessModal(step) {
+  if (!processModal || !processModalTitle || !processModalText) return;
+
+  const title =
+    step.dataset.title ||
+    step.querySelector(".step-title")?.textContent?.trim() ||
+    "Process";
+  const text =
+    step.dataset.text ||
+    step.querySelector(".step-desc")?.textContent?.trim() ||
+    "";
+
+  processModalTitle.textContent = title;
+  processModalText.textContent = text;
+  processModal.classList.add("is-open");
+  processModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+processSteps.forEach((step) => {
+  step.addEventListener("click", () => openProcessModal(step));
+});
+
+document.querySelectorAll("[data-close-modal]").forEach((element) => {
+  element.addEventListener("click", closeProcessModal);
+});
+
+document
+  .querySelector(".process-modal__dialog")
+  ?.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && processModal?.classList.contains("is-open")) {
+    closeProcessModal();
+  }
+});
