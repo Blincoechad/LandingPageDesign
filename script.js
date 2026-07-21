@@ -66,6 +66,17 @@ const processSteps = document.querySelectorAll(".process-step");
 const videoModal = document.getElementById("videoModal");
 const videoModalPlayer = document.getElementById("videoModalPlayer");
 const videoCards = document.querySelectorAll("[data-video-modal]");
+const imageModal = document.getElementById("imageModal");
+const imageModalPreview = document.getElementById("imageModalPreview");
+const imageModalThumbs = document.getElementById("imageModalThumbs");
+const imageModalPrev = imageModal?.querySelector(".image-modal__nav--prev");
+const imageModalNext = imageModal?.querySelector(".image-modal__nav--next");
+const imageCards = document.querySelectorAll(
+  ".project-card:not([data-video-modal])",
+);
+
+let imageModalItems = [];
+let imageModalIndex = 0;
 
 function closeProcessModal() {
   if (!processModal) return;
@@ -164,5 +175,127 @@ videoModal
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && videoModal?.classList.contains("is-open")) {
     closeVideoModal();
+  }
+});
+
+function setImageModalNavVisibility() {
+  const shouldShowNav = imageModalItems.length > 1;
+  imageModalPrev?.classList.toggle("is-hidden", !shouldShowNav);
+  imageModalNext?.classList.toggle("is-hidden", !shouldShowNav);
+}
+
+function renderImageModalPreview() {
+  if (!imageModalPreview || imageModalItems.length === 0) return;
+
+  const currentItem = imageModalItems[imageModalIndex];
+  imageModalPreview.src = currentItem.src;
+  imageModalPreview.alt = currentItem.alt || "Project preview";
+
+  imageModalThumbs
+    ?.querySelectorAll(".image-modal__thumb")
+    .forEach((thumb, idx) => {
+      thumb.classList.toggle("is-active", idx === imageModalIndex);
+    });
+}
+
+function closeImageModal() {
+  if (!imageModal || !imageModalPreview || !imageModalThumbs) return;
+  imageModal.classList.remove("is-open");
+  imageModal.setAttribute("aria-hidden", "true");
+  imageModalPreview.removeAttribute("src");
+  imageModalThumbs.innerHTML = "";
+  imageModalItems = [];
+  imageModalIndex = 0;
+  document.body.classList.remove("modal-open");
+}
+
+function stepImageModal(direction) {
+  if (imageModalItems.length < 2) return;
+  imageModalIndex =
+    (imageModalIndex + direction + imageModalItems.length) %
+    imageModalItems.length;
+  renderImageModalPreview();
+}
+
+function openImageModal(images, startIndex = 0) {
+  if (
+    !imageModal ||
+    !imageModalPreview ||
+    !imageModalThumbs ||
+    images.length === 0
+  ) {
+    return;
+  }
+
+  imageModalItems = images;
+  imageModalIndex = startIndex;
+  imageModalThumbs.innerHTML = "";
+
+  imageModalItems.forEach((item, idx) => {
+    const thumbButton = document.createElement("button");
+    thumbButton.type = "button";
+    thumbButton.className = "image-modal__thumb";
+    thumbButton.setAttribute("aria-label", `Preview image ${idx + 1}`);
+    thumbButton.innerHTML = `<img src="${item.src}" alt="${item.alt || "Project thumbnail"}" />`;
+    thumbButton.addEventListener("click", () => {
+      imageModalIndex = idx;
+      renderImageModalPreview();
+    });
+    imageModalThumbs.appendChild(thumbButton);
+  });
+
+  setImageModalNavVisibility();
+  renderImageModalPreview();
+  imageModal.classList.add("is-open");
+  imageModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+imageCards.forEach((card) => {
+  card.addEventListener("click", (event) => {
+    const clickedLink = event.target.closest("a");
+    if (clickedLink) {
+      event.preventDefault();
+    }
+
+    const images = [...card.querySelectorAll(".project-img img")]
+      .map((img) => ({
+        src: img.currentSrc || img.getAttribute("src") || "",
+        alt: img.getAttribute("alt") || "Project preview",
+      }))
+      .filter((item) => item.src);
+
+    const uniqueImages = images.filter(
+      (item, idx, arr) =>
+        arr.findIndex((entry) => entry.src === item.src) === idx,
+    );
+
+    if (uniqueImages.length === 0) return;
+    openImageModal(uniqueImages);
+  });
+});
+
+imageModalPrev?.addEventListener("click", () => stepImageModal(-1));
+imageModalNext?.addEventListener("click", () => stepImageModal(1));
+
+document.querySelectorAll("[data-close-image-modal]").forEach((element) => {
+  element.addEventListener("click", closeImageModal);
+});
+
+imageModal
+  ?.querySelector(".image-modal__dialog")
+  ?.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && imageModal?.classList.contains("is-open")) {
+    closeImageModal();
+  }
+  if (event.key === "ArrowLeft" && imageModal?.classList.contains("is-open")) {
+    stepImageModal(-1);
+  }
+  if (event.key === "ArrowRight" && imageModal?.classList.contains("is-open")) {
+    stepImageModal(1);
   }
 });
