@@ -63,6 +63,9 @@ const processModal = document.getElementById("processModal");
 const processModalTitle = document.getElementById("processModalTitle");
 const processModalText = document.getElementById("processModalText");
 const processSteps = document.querySelectorAll(".process-step");
+const videoModal = document.getElementById("videoModal");
+const videoModalPlayer = document.getElementById("videoModalPlayer");
+const videoCards = document.querySelectorAll("[data-video-modal]");
 
 function closeProcessModal() {
   if (!processModal) return;
@@ -107,5 +110,59 @@ document
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && processModal?.classList.contains("is-open")) {
     closeProcessModal();
+  }
+});
+
+function closeVideoModal() {
+  if (!videoModal || !videoModalPlayer) return;
+  videoModal.classList.remove("is-open");
+  videoModal.setAttribute("aria-hidden", "true");
+  videoModalPlayer.pause();
+  videoModalPlayer.currentTime = 0;
+  videoModalPlayer.removeAttribute("src");
+  videoModalPlayer.load();
+  document.body.classList.remove("modal-open");
+}
+
+async function openVideoModal(videoSrc) {
+  if (!videoModal || !videoModalPlayer || !videoSrc) return;
+  videoModalPlayer.src = videoSrc;
+  videoModalPlayer.muted = false;
+  videoModal.classList.add("is-open");
+  videoModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+
+  try {
+    await videoModalPlayer.play();
+  } catch (error) {
+    // Ignore blocked autoplay errors; controls remain available for manual play.
+  }
+}
+
+videoCards.forEach((card) => {
+  const videoSrc = card.dataset.videoSrc;
+
+  card.addEventListener("click", (event) => {
+    const clickedLink = event.target.closest("a");
+    if (clickedLink) {
+      event.preventDefault();
+    }
+    openVideoModal(videoSrc);
+  });
+});
+
+document.querySelectorAll("[data-close-video-modal]").forEach((element) => {
+  element.addEventListener("click", closeVideoModal);
+});
+
+videoModal
+  ?.querySelector(".video-modal__dialog")
+  ?.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && videoModal?.classList.contains("is-open")) {
+    closeVideoModal();
   }
 });

@@ -536,10 +536,14 @@
           </div>
 
           <!-- Content Creation -->
-          <div class="project-card reveal">
+          <div
+            class="project-card reveal"
+            data-video-modal
+            data-video-src="media/clips/PolkRunRide.mp4"
+          >
             <div class="project-img project-video-wrap">
               <video autoplay muted loop playsinline preload="metadata">
-                <source src="media/clips/1BikeClip-web.mp4" type="video/mp4" />
+                <source src="media/clips/PolkRunRide.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <div class="project-overlay"></div>
@@ -548,8 +552,8 @@
               <div class="project-type">// Content Creation</div>
               <div class="project-title">Content Creation Showcase</div>
               <p class="project-desc">
-                Professional social media content creation focused on producing
-                engaging, brand-aligned visuals and video designed to strengthen
+                Social media content creation focused on producing
+                engaging visuals and making the video designed to strengthen
                 audience connection and online presence.
               </p>
               <div class="project-tags">
@@ -560,7 +564,7 @@
               <div class="project-links">
                 <a
                   class="project-link project-link-live"
-                  href="media/clips/1BikeClip-web.mp4"
+                  href="media/clips/PolkRunRide.mp4"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -653,6 +657,16 @@
         <div class="process-modal__eyebrow">My Process</div>
         <h3 class="process-modal__title" id="processModalTitle"></h3>
         <p class="process-modal__text" id="processModalText"></p>
+      </div>
+    </div>
+
+    <div class="video-modal" id="videoModal" aria-hidden="true">
+      <div class="video-modal__backdrop" data-close-video-modal></div>
+      <div class="video-modal__dialog" role="dialog" aria-modal="true" aria-label="Project video player">
+        <button class="video-modal__close" type="button" aria-label="Close video" data-close-video-modal>
+          ×
+        </button>
+        <video id="videoModalPlayer" class="video-modal__player" controls preload="metadata"></video>
       </div>
     </div>
 

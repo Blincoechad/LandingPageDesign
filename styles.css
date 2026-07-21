@@ -1099,6 +1099,60 @@ section {
   color: var(--muted);
 }
 
+.video-modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  z-index: 1300;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.video-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.video-modal__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.85);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.video-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(920px, 100%);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.75rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+}
+.video-modal__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--border);
+  background: rgba(8, 12, 20, 0.8);
+  color: var(--text);
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 2;
+}
+.video-modal__close:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.video-modal__player {
+  width: 100%;
+  display: block;
+  background: #000;
+}
+
 /* ─── CONTACT ───────────────────────────────────── */
 #contact {
   padding: 7rem 3rem;
