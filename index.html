@@ -37,7 +37,27 @@
         <li><a href="#process">Process</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a href="#contact" class="nav-cta">Hire Me</a>
+      <div class="nav-actions">
+        <a href="#contact" class="nav-cta">Hire Me</a>
+        <button
+          type="button"
+          class="nav-toggle"
+          id="navToggle"
+          aria-expanded="false"
+          aria-controls="mobileNavMenu"
+          aria-label="Open navigation menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="mobile-nav-menu" id="mobileNavMenu">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </div>
     </nav>
 
     <!-- ─── HERO ─────────────────────────────────────── -->
@@ -529,6 +549,54 @@
                   rel="noopener noreferrer"
                 >
                   GitHub
+                </a>
+              </div>
+            </div>
+            <div class="project-arrow">↗</div>
+          </div>
+
+          <!-- Interactive PDF Newsletter -->
+          <div class="project-card reveal">
+            <div class="project-img">
+              <img
+                src="media/graphicWork/NewsLetter1.png"
+                alt="Interactive PDF newsletter layout"
+                onerror="
+                  this.parentElement.innerHTML =
+                    '<div class=\'project-img-placeholder\'>[media/graphicWork/NewsLetter1.png]</div>'
+                "
+              />
+              <div hidden>
+                <img src="media/graphicWork/NewsLetter1.png" alt="Newsletter page 1" />
+                <img src="media/graphicWork/NewsLetter2.png" alt="Newsletter page 2" />
+                <img src="media/graphicWork/NewsLetter3.png" alt="Newsletter page 3" />
+                <img src="media/graphicWork/NewsLetter4.png" alt="Newsletter page 4" />
+                <img src="media/graphicWork/NewsLetter5.png" alt="Newsletter page 5" />
+                <img src="media/graphicWork/NewsLetter6.png" alt="Newsletter page 6" />
+              </div>
+              <div class="project-overlay"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-type">// Interactive PDF Design</div>
+              <div class="project-title">InDesign Newsletter Experience</div>
+              <p class="project-desc">
+                Interactive newsletter designed in Adobe InDesign with a
+                polished editorial layout, clickable navigation, and a digital
+                reading flow. 
+              </p>
+              <div class="project-tags">
+                <div class="tag">InDesign</div>
+                <div class="tag">Interactive PDF</div>
+                <div class="tag">Editorial Design</div>
+              </div>
+              <div class="project-links">
+                <a
+                  class="project-link project-link-live"
+                  href="https://indd.adobe.com/view/d4904f1c-a24c-4510-95b4-b731d081a69c "
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Live Interactive Design
                 </a>
               </div>
             </div>

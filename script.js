@@ -20,6 +20,41 @@ function animCursor() {
 }
 animCursor();
 
+// ─── Mobile navigation
+const nav = document.querySelector("nav");
+const navToggle = document.getElementById("navToggle");
+const mobileNavLinks = document.querySelectorAll(".mobile-nav-menu a");
+
+function closeMobileNav() {
+  if (!nav || !navToggle) return;
+  nav.classList.remove("mobile-nav-open");
+  navToggle.classList.remove("is-open");
+  navToggle.setAttribute("aria-expanded", "false");
+  navToggle.setAttribute("aria-label", "Open navigation menu");
+}
+
+function toggleMobileNav() {
+  if (!nav || !navToggle) return;
+  const isOpen = nav.classList.toggle("mobile-nav-open");
+  navToggle.classList.toggle("is-open", isOpen);
+  navToggle.setAttribute("aria-expanded", String(isOpen));
+  navToggle.setAttribute(
+    "aria-label",
+    isOpen ? "Close navigation menu" : "Open navigation menu",
+  );
+}
+
+navToggle?.addEventListener("click", toggleMobileNav);
+mobileNavLinks.forEach((link) => {
+  link.addEventListener("click", closeMobileNav);
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 900) {
+    closeMobileNav();
+  }
+});
+
 // ─── Reveal on scroll
 const reveals = document.querySelectorAll(".reveal");
 const observer = new IntersectionObserver(
@@ -66,6 +101,7 @@ const processSteps = document.querySelectorAll(".process-step");
 const videoModal = document.getElementById("videoModal");
 const videoModalPlayer = document.getElementById("videoModalPlayer");
 const videoCards = document.querySelectorAll("[data-video-modal]");
+const projectPreviewVideos = document.querySelectorAll(".project-video-wrap video");
 const imageModal = document.getElementById("imageModal");
 const imageModalPreview = document.getElementById("imageModalPreview");
 const imageModalThumbs = document.getElementById("imageModalThumbs");
@@ -135,9 +171,21 @@ function closeVideoModal() {
   document.body.classList.remove("modal-open");
 }
 
+function startPreviewVideo(video) {
+  if (!video) return;
+  video.muted = true;
+  video.defaultMuted = true;
+  video.setAttribute("muted", "");
+  video.load();
+  video.play().catch(() => {
+    // Some browsers still defer background media; keep the element loaded.
+  });
+}
+
 async function openVideoModal(videoSrc) {
   if (!videoModal || !videoModalPlayer || !videoSrc) return;
   videoModalPlayer.src = videoSrc;
+  videoModalPlayer.load();
   videoModalPlayer.muted = false;
   videoModal.classList.add("is-open");
   videoModal.setAttribute("aria-hidden", "false");
@@ -150,13 +198,28 @@ async function openVideoModal(videoSrc) {
   }
 }
 
+projectPreviewVideos.forEach((video) => {
+  if (video.readyState === 0) {
+    startPreviewVideo(video);
+  }
+});
+
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState !== "visible") return;
+  projectPreviewVideos.forEach((video) => {
+    if (video.paused) {
+      startPreviewVideo(video);
+    }
+  });
+});
+
 videoCards.forEach((card) => {
   const videoSrc = card.dataset.videoSrc;
 
   card.addEventListener("click", (event) => {
     const clickedLink = event.target.closest("a");
     if (clickedLink) {
-      event.preventDefault();
+      return;
     }
     openVideoModal(videoSrc);
   });
@@ -255,7 +318,7 @@ imageCards.forEach((card) => {
   card.addEventListener("click", (event) => {
     const clickedLink = event.target.closest("a");
     if (clickedLink) {
-      event.preventDefault();
+      return;
     }
 
     const images = [...card.querySelectorAll(".project-img img")]
