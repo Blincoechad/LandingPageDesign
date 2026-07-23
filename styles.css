@@ -1457,7 +1457,7 @@ footer {
 .footer-copy {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.75rem;
-  color: var(--muted);
+  color: #c3cfde;
   letter-spacing: 0.08em;
 }
 .footer-links {
@@ -1467,7 +1467,7 @@ footer {
 .footer-links a {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.75rem;
-  color: var(--muted);
+  color: #c3cfde;
   text-decoration: none;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1597,7 +1597,7 @@ footer {
     justify-self: end;
     width: 100%;
     justify-content: space-between;
-    margin-left: 0.85rem;
+    margin-left: 10.854rem;
   }
   .nav-cta {
     margin-right: 0;
