@@ -762,68 +762,107 @@
     <section id="contact">
       <div class="contact-inner">
         <div class="reveal">
-          <div class="about-label contact-label-center">Get In Touch</div>
-          <h2 class="contact-title">
-            Ready to build
-            <br />
-            something
-            <em>great?</em>
-          </h2>
-          <p class="contact-sub">
-            Tell me about your project and I'll get back to you within 24 hours.
-            No commitments — just a conversation.
-          </p>
+          <div class="about-label contact-label-center">Employer Contact</div>
+          <div class="about-label contact-label-center">Let's Connect</div>
+
+<h2 class="contact-title">
+  Ready to Work
+  <br />
+  <em>Together?</em>
+</h2>
+
+<p class="contact-sub">
+  Whether you're hiring for a full-time role, internship, contract position, or
+  need help with a web design, development, digital marketing, or content
+  creation project, I'd love to hear from you. Fill out the form below, and
+  I'll respond as soon as possible.
+</p>
         </div>
         <form
           class="contact-form reveal"
           action="https://formspree.io/f/mpqgwbjv"
           method="POST"
         >
+          <input type="hidden" name="_subject" value="New employer inquiry from portfolio site" />
+          <div class="form-note">
+  Thanks for taking the time to reach out. Whether you're a recruiter, hiring
+  manager, business owner, or potential collaborator, I'd be happy to discuss
+  how I can contribute. Please share a few details below.
+</div>
           <div class="form-row">
             <div class="form-group">
-              <label for="contactName">Your Name</label>
-              <input id="contactName" type="text" name="name" placeholder="John Smith" />
+              <label for="contactName">Employer Name</label>
+              <input id="contactName" type="text" name="name" placeholder="Jordan Smith" required />
             </div>
             <div class="form-group">
-              <label for="contactEmail">Email Address</label>
-              <input id="contactEmail" type="email" name="email" placeholder="john@example.com" />
+              <label for="contactCompany">Company Name</label>
+              <input id="contactCompany" type="text" name="company" placeholder="Acme Studio" required />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="projectType">Project Type</label>
-              <select id="projectType" name="projectType">
-                <option value="" disabled selected>Select a service...</option>
-                <option>New Website Design</option>
-                <option>Site Redesign</option>
-                <option>Social Content Work</option>
-                <option>Logo / Branding</option>
+              <label for="contactEmail">Contact Email</label>
+              <input id="contactEmail" type="email" name="email" placeholder="jordan@company.com" required />
+            </div>
+            <div class="form-group">
+              <label for="contactPhone">Phone Number (Optional)</label>
+              <input id="contactPhone" type="tel" name="phone" placeholder="(555) 123-4567" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="jobType">Job Type</label>
+              <select id="jobType" name="jobType" required>
+                <option value="" disabled selected>Select a job type...</option>
+                <option>Website Design</option>
+                <option>Website Redesign</option>
+                <option>Website Maintenance</option>
+                <option>Landing Page Design</option>
+                <option>WordPress</option>
+                <option>Front-End Development</option>
+                <option>SEO</option>
+                <option>Digital Marketing</option>
+                <option>Social Media Content</option>
+                <option>Video Editing</option>
+                <option>Graphic Design</option>
+                <option>Branding</option>
                 <option>Other</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="budgetRange">Budget Range</label>
-              <select id="budgetRange" name="budgetRange">
-                <option value="" disabled selected>Select a range...</option>
-                <option>Under $500</option>
-                <option>$500 – $1,000</option>
-                <option>$1,000 – $2,500</option>
-                <option>$2,500+ </option>
+              <label for="employmentType">Employment Type</label>
+              <select id="employmentType" name="employmentType" required>
+                <option value="" disabled selected>Select an option...</option>
+                <option>Full Time</option>
+                <option>Part Time</option>
+                <option>Contract</option>
+                <option>Other</option>
               </select>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group full">
-              <label for="contactMessage">Tell Me About Your Project</label>
+              <label for="workLocation">Work Arrangement</label>
+              <select id="workLocation" name="workLocation" required>
+                <option value="" disabled selected>Select a work arrangement...</option>
+                <option>Remote</option>
+                <option>In Person</option>
+                <option>Hybrid</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full">
+              <label for="contactMessage">Perferred Method of Contact</label>
               <textarea
                 id="contactMessage"
-                rows="5"
+                rows="2"
                 name="message"
-                placeholder="What are you looking to build? Any details about your goals, timeline, or inspiration are helpful..."
+                placeholder="Perferred method of contact..."
               ></textarea>
             </div>
           </div>
-          <button type="submit" class="form-submit">Send Message →</button>
+          <button type="submit" class="form-submit">Send Inquiry →</button>
         </form>
         </div>
       </div>
