@@ -1047,13 +1047,13 @@ section {
   font-family: "Rajdhani", sans-serif;
   font-size: 3rem;
   font-weight: 700;
-  color: var(--border);
+  color: var(--accent);
   line-height: 1;
   margin-bottom: 1rem;
   transition: color 0.2s;
 }
 .process-step:hover .step-num {
-  color: rgba(56, 189, 248, 0.25);
+  color: var(--accent);
 }
 .step-title {
   font-family: "Rajdhani", sans-serif;
