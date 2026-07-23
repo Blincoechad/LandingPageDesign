@@ -955,6 +955,16 @@ section {
   border-color: var(--accent);
   color: var(--accent);
 }
+.project-link-disabled {
+  opacity: 0.6;
+  cursor: default;
+  pointer-events: none;
+}
+.project-link-disabled:hover {
+  transform: scale(1);
+  border-color: rgb(129, 125, 125);
+  color: var(--text);
+}
 .tag {
   padding: 0.25rem 0.65rem;
   background: var(--bg);
