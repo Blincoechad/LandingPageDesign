@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixel Designs | Certifications</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Syne:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="certifications.css" />
+  </head>
+  <body class="cert-page">
+    <div class="cursor" id="cursor">
+      <div class="cursor-dot" id="cursorDot"></div>
+      <div class="cursor-ring" id="cursorRing"></div>
+    </div>
+
+    <div class="grid-bg"></div>
+
+    <nav>
+      <a href="index.html#hero" class="nav-logo">
+        <img
+          src="media/myLogo.png"
+          alt="Pixel Designs Logo"
+          onerror="this.style.display = 'none'"
+        />
+        <span class="nav-logo-text">Pixel Designs</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#process">Process</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="index.html#contact" class="nav-cta">Contact Me</a>
+        <button
+          type="button"
+          class="nav-toggle"
+          id="navToggle"
+          aria-expanded="false"
+          aria-controls="mobileNavMenu"
+          aria-label="Open navigation menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="mobile-nav-menu" id="mobileNavMenu">
+        <a href="index.html#about">About</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#process">Process</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="cert-hero" id="certifications">
+        <div class="cert-hero-inner reveal visible">
+          <div class="about-label">Credentials</div>
+          <h1 class="cert-title">
+            My
+            <span class="hero-sub-accent hero-sub-accent--1">
+              Certifications
+            </span>
+          </h1>
+          <p class="cert-sub">
+            While I'm finishing up my degree in Computer Science, I've also been
+            actively pursuing various certifications to enhance my skills in web
+            development, design, and analytics. These certifications reflect my
+            commitment to continuous learning and staying updated with the
+            latest industry trends.
+          </p>
+        </div>
+      </section>
+
+      <section class="cert-gallery">
+        <div class="cert-gallery-inner reveal visible" data-cert-carousel>
+          <div class="cert-carousel-head">
+            <h2 class="section-title">Certifications</h2>
+            <p class="cert-carousel-note">
+              I continue to learn and expand my knowledge through various
+              certifications. Below are some of the certifications I've earned,
+              showcasing my dedication to professional growth and expertise in
+              the field.
+            </p>
+          </div>
+
+          <div
+            class="cert-carousel-shell"
+            aria-label="Certification image carousel"
+          >
+            <div class="scene" id="certScene">
+              <div class="carousel" id="certTrack">
+                <figure class="carousel-item cert-slide is-active">
+                  <img
+                    src="media/certifications/CanvaIntro.png"
+                    alt="Canva Intro certification"
+                    onerror="
+                      this.parentElement.innerHTML =
+                        '<div class=\'cert-fallback\'>Image unavailable</div>'
+                    "
+                  />
+                  <figcaption>Canva Intro</figcaption>
+                </figure>
+                <figure class="carousel-item cert-slide">
+                  <img
+                    src="media/certifications/CanvaProjects.jpg"
+                    alt="Canva Projects certification"
+                    onerror="
+                      this.parentElement.innerHTML =
+                        '<div class=\'cert-fallback\'>Image unavailable</div>'
+                    "
+                  />
+                  <figcaption>Canva Projects</figcaption>
+                </figure>
+                <figure class="carousel-item cert-slide">
+                  <img
+                    src="media/certifications/ExcelGraphs.png"
+                    alt="Excel Graphs certification"
+                    onerror="
+                      this.parentElement.innerHTML =
+                        '<div class=\'cert-fallback\'>Image unavailable</div>'
+                    "
+                  />
+                  <figcaption>Excel Graphs</figcaption>
+                </figure>
+                <figure class="carousel-item cert-slide">
+                  <img
+                    src="media/certifications/FigmaComponents.png"
+                    alt="Figma Components certification"
+                    onerror="
+                      this.parentElement.innerHTML =
+                        '<div class=\'cert-fallback\'>Image unavailable</div>'
+                    "
+                  />
+                  <figcaption>Figma Components</figcaption>
+                </figure>
+                <figure class="carousel-item cert-slide">
+                  <img
+                    src="media/certifications/FigmaIntoCode.png"
+                    alt="Figma Into Code certification"
+                    onerror="
+                      this.parentElement.innerHTML =
+                        '<div class=\'cert-fallback\'>Image unavailable</div>'
+                    "
+                  />
+                  <figcaption>Figma Into Code</figcaption>
+                </figure>
+                <figure class="carousel-item cert-slide">
+                  <img
+                    src="media/certifications/JsAiPrograming.png"
+                    alt="JavaScript AI Programming certification"
+                    onerror="
+                      this.parentElement.innerHTML =
+                        '<div class=\'cert-fallback\'>Image unavailable</div>'
+                    "
+                  />
+                  <figcaption>JavaScript AI Programming</figcaption>
+                </figure>
+                <figure class="carousel-item cert-slide">
+                  <img
+                    src="media/certifications/JsDebugging.png"
+                    alt="JavaScript Debugging certification"
+                    onerror="
+                      this.parentElement.innerHTML =
+                        '<div class=\'cert-fallback\'>Image unavailable</div>'
+                    "
+                  />
+                  <figcaption>JavaScript Debugging</figcaption>
+                </figure>
+                <figure class="carousel-item cert-slide">
+                  <img
+                    src="media/certifications/JsWebForms.png"
+                    alt="JavaScript Web Forms certification"
+                    onerror="
+                      this.parentElement.innerHTML =
+                        '<div class=\'cert-fallback\'>Image unavailable</div>'
+                    "
+                  />
+                  <figcaption>JavaScript Web Forms</figcaption>
+                </figure>
+                <figure class="carousel-item cert-slide">
+                  <img
+                    src="media/certifications/PythonMadeApp.png"
+                    alt="Python Made App certification"
+                    onerror="
+                      this.parentElement.innerHTML =
+                        '<div class=\'cert-fallback\'>Image unavailable</div>'
+                    "
+                  />
+                  <figcaption>Python Made App</figcaption>
+                </figure>
+                <figure class="carousel-item cert-slide">
+                  <img
+                    src="media/certifications/SEO(SquareSpace).png"
+                    alt="SEO for SquareSpace certification"
+                    onerror="
+                      this.parentElement.innerHTML =
+                        '<div class=\'cert-fallback\'>Image unavailable</div>'
+                    "
+                  />
+                  <figcaption>SEO (SquareSpace)</figcaption>
+                </figure>
+                <figure class="carousel-item cert-slide">
+                  <img
+                    src="media/certifications/VideoCreationCanva.png"
+                    alt="Video Creation with Canva certification"
+                    onerror="
+                      this.parentElement.innerHTML =
+                        '<div class=\'cert-fallback\'>Image unavailable</div>'
+                    "
+                  />
+                  <figcaption>Video Creation Canva</figcaption>
+                </figure>
+                <figure class="carousel-item cert-slide">
+                  <img
+                    src="media/certifications/WebFlowNoCode.png"
+                    alt="WebFlow no-code certification"
+                    onerror="
+                      this.parentElement.innerHTML =
+                        '<div class=\'cert-fallback\'>Image unavailable</div>'
+                    "
+                  />
+                  <figcaption>WebFlow No Code</figcaption>
+                </figure>
+                <figure class="carousel-item cert-slide">
+                  <img
+                    src="media/certifications/Webflow101.png"
+                    alt="Webflow 101 certification"
+                    onerror="
+                      this.parentElement.innerHTML =
+                        '<div class=\'cert-fallback\'>Image unavailable</div>'
+                    "
+                  />
+                  <figcaption>Webflow 101</figcaption>
+                </figure>
+                <figure class="carousel-item cert-slide">
+                  <img
+                    src="media/certifications/WebflowLayouts.png"
+                    alt="Webflow Layouts certification"
+                    onerror="
+                      this.parentElement.innerHTML =
+                        '<div class=\'cert-fallback\'>Image unavailable</div>'
+                    "
+                  />
+                  <figcaption>Webflow Layouts</figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <div class="cert-controls" aria-label="Carousel controls">
+              <button
+                class="cert-nav cert-nav-prev"
+                type="button"
+                aria-label="Previous certification"
+              >
+                Prev
+              </button>
+              <button
+                class="cert-nav cert-nav-next"
+                type="button"
+                aria-label="Next certification"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="cert-dots"
+            id="certDots"
+            aria-label="Carousel navigation dots"
+          ></div>
+
+          <div class="cert-actions">
+            <a href="index.html#contact" class="btn-primary">Hire Me</a>
+            <a href="index.html#projects" class="btn-ghost">See Projects</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="cert-lightbox" id="certLightbox" aria-hidden="true">
+      <div class="cert-lightbox__backdrop" data-close-cert-lightbox></div>
+      <div
+        class="cert-lightbox__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Certification image preview"
+      >
+        <button
+          class="cert-lightbox__close"
+          type="button"
+          aria-label="Close image preview"
+          data-close-cert-lightbox
+        >
+          ×
+        </button>
+        <img
+          id="certLightboxImage"
+          class="cert-lightbox__image"
+          alt="Certification preview"
+        />
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-left">
+        <div class="footer-logo">
+          <img
+            src="media/myLogo.png"
+            alt=""
+            onerror="this.style.display = 'none'"
+          />
+          <span class="footer-logo-text">Pixel Designs</span>
+        </div>
+      </div>
+      <div class="footer-copy">© 2026 Pixel Designs. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#process">Process</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="certifications.js"></script>
+  </body>
+</html>

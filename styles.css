@@ -1625,6 +1625,41 @@ section {
   transform: translateY(-2px);
 }
 
+.certifications-cta-wrap {
+  margin-top: 1.6rem;
+  display: flex;
+  justify-content: center;
+}
+
+.certifications-cta {
+  display: inline-block;
+  min-width: 240px;
+  text-align: center;
+  text-decoration: none;
+  padding: 0.92rem 1.6rem;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: inset 0 0 0 rgba(56, 189, 248, 0);
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.25s ease,
+    transform 0.2s ease;
+}
+
+.certifications-cta:hover {
+  color: var(--bg);
+  background: var(--accent);
+  box-shadow: 0 0 26px var(--glow);
+  transform: translateY(-2px);
+}
+
 @keyframes formSubmitGlow {
   0%,
   100% {
@@ -1903,6 +1938,10 @@ footer {
   }
   .form-group.full {
     grid-column: span 1;
+  }
+  .certifications-cta {
+    width: 100%;
+    max-width: 380px;
   }
   footer {
     flex-direction: column;
